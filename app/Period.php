@@ -8,9 +8,9 @@ class Period extends Model
 {
     public static $statics = [
         'type' = [
-            'C' => 'Closing',
-            'P' => 'Posting',
-            'A' => 'Open',
+            '1' => 'Open',
+            '2' => 'Posting',
+            '3' => 'Closing',
         ]
     ];
 }

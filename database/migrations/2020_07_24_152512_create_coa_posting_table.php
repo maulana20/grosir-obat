@@ -16,7 +16,7 @@ class CreateCoaPostingTable extends Migration
         Schema::create('group_account', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
-            $table->string('type', 3);
+            $table->integer('type');
             $table->integer('parent')->nullable();
             $table->timestamps();
         });
@@ -24,18 +24,17 @@ class CreateCoaPostingTable extends Migration
             $table->increments('id');
             $table->integer('group_account_id');
             $table->integer('user_id');
-            $table->string('type', 6);
+            $table->integer('type');
             $table->string('code', 6);
             $table->string('name', 50);
             $table->integer('lod');
             $table->string('desc', 160);
-            $table->string('vou_code', 6);
-            $table->string('status', 1);
+            $table->string('vou', 6);
             $table->timestamps();
         });
         Schema::create('period', function (Blueprint $table) {
-            $table->string('begin', 6); // Ym
-            $table->string('status', 1); // C => Closing, P => Posting, A => Open
+            $table->string('begin', 6);
+            $table->integer('status');
             $table->timestamps();
         });
         Schema::create('posting', function (Blueprint $table) {
