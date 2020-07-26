@@ -33,11 +33,11 @@ SELECT b.coa_to, b.coa_from, d.name, a.period_begin, a.created_at, b.desc,
     ELSE
        0
     END) AS credit,
-(SELECT balance FROM posting as d WHERE d.coa_id=1 AND d.period_begin='201810') + SUM(CASE WHEN b.position = 2 THEN
+(SELECT balance FROM posting as d WHERE d.coa_id=1 AND d.period_begin='201810') + (SELECT @ending := @ending+(CASE WHEN b.position = 2 THEN
        b.value
     ELSE
        b.value * -1
-    END) OVER (PARTITION BY b.coa_to ORDER BY b.id) As ending
+    END) FROM (SELECT @ending := 0) i) As ending
 FROM financial_trans AS a
 LEFT JOIN gl_analysis AS b ON b.financial_trans_id=a.id
 LEFT JOIN period AS c ON c.begin=a.period_begin
