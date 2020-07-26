@@ -1,7 +1,8 @@
 <?php
 
-use App\GroupAccount;
 use Illuminate\Database\Seeder;
+
+use App\GroupAccount;
 
 class GroupAccountSeeder extends Seeder
 {

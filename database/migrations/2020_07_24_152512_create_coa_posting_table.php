@@ -25,15 +25,15 @@ class CreateCoaPostingTable extends Migration
             $table->integer('group_account_id');
             $table->integer('user_id');
             $table->integer('type');
-            $table->string('code', 6);
+            $table->string('code', 6)->unique();
             $table->string('name', 50);
             $table->integer('lod');
             $table->string('desc', 160);
-            $table->string('vou', 6);
+            $table->string('vou', 6)->nullable()->unique();
             $table->timestamps();
         });
         Schema::create('period', function (Blueprint $table) {
-            $table->string('begin', 6);
+            $table->string('begin', 6)->unique();
             $table->integer('status');
             $table->timestamps();
         });

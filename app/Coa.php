@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coa extends Model
 {
+    protected $table = 'coa';
+    
     public static $statics = [
         'type' => [
             '1' => 'Aktiva',
