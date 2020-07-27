@@ -48,6 +48,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('products', 'ProductsController', ['except' => ['create', 'show', 'edit']]);
 
     /*
+     * Accounting
+     */
+    Route::get('accounting/balancesheet-account', ['as' => 'balancesheet-account.index', 'uses' => 'Accounting\BalanceSheetController@index']);
+
+    /*
      * Units Routes
      */
     Route::resource('units', 'UnitsController', ['except' => ['create', 'show', 'edit']]);
