@@ -19,9 +19,25 @@
                     @foreach ($activa as $data)
                     <tr>
                         @if (!empty($data->parent))
-                        <td style="padding-left: 25px;">{{ $data->name }}</td>
+                        <td style="padding-left: 25px;">
+                            {{ $data->name }}
+                            @if (!empty($data->coa_list))
+                                @foreach (explode(',', $data->coa_list) as $coa)
+                                    <div>{{ $coa }}</div>
+                                @endforeach
+                            @endif
+                        </td>
                         @else
-                        <td>{{ $data->name }}</td>
+                        <td>
+                            {{ $data->name }}
+                            @if (!empty($data->coa_list))
+                                @foreach (explode(',', $data->coa_list) as $coa)
+                                    <div style="background-color: #f5f6fa; padding-left: 6px; font-size: 12px;">
+                                        {!! link_to_route('balancesheet-account.index', explode('@', $coa)[1], ['action' => 'edit', 'id' =>  explode('@', $coa)[0]]) !!} {{ explode('@', $coa)[2] }}
+                                    </div>
+                                @endforeach
+                            @endif
+                        </td>
                         @endif
                     </tr>
                     @endforeach
@@ -46,6 +62,9 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="col-md-4">
+        @include('accounting.balancesheet-account.partials.forms')
     </div>
 </div>
 @endsection

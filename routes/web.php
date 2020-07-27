@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     /*
      * Accounting
      */
-    Route::get('accounting/balancesheet-account', ['as' => 'balancesheet-account.index', 'uses' => 'Accounting\BalanceSheetController@index']);
+    Route::resource('balancesheet-account', 'Accounting\BalanceSheetController', ['except' => ['create', 'show', 'edit']]);
 
     /*
      * Units Routes
