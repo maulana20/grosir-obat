@@ -51,6 +51,9 @@ Route::group(['middleware' => 'auth'], function () {
      * Accounting
      */
     Route::resource('balancesheet-account', 'Accounting\BalanceSheetController', ['except' => ['create', 'show', 'edit']]);
+    Route::resource('journal', 'Accounting\JournalController', ['except' => ['create', 'show', 'edit']]);
+    Route::resource('general-ledger', 'Accounting\GeneralLegderController', ['except' => ['create', 'show', 'edit']]);
+    Route::resource('trial-balance', 'Accounting\TrialBalanceController', ['except' => ['create', 'show', 'edit']]);
 
     /*
      * Units Routes

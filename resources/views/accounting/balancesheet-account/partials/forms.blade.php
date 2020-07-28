@@ -3,7 +3,7 @@
 @if (Request::get('action') == 'create')
     {!! Form::open(['route' => 'balancesheet-account.store']) !!}
     <div class="row">
-        <div class="col-md-4">{!! FormField::text('code', ['label' => __('accounting.coa-code'), 'required' => true, 'disabled' => true]) !!}</div>
+        <div class="col-md-4">{!! FormField::text('code', ['label' => __('accounting.coa-code'), 'required' => true]) !!}</div>
     </div>
     {!! FormField::text('name', ['label' => __('accounting.coa-name'), 'required' => true]) !!}
     {!! FormField::select('group_account_id', $group_account->pluck('name','id'), ['label' => __('accounting.group-account'), 'required' => true]) !!}

@@ -9,4 +9,7 @@ return [
     'group-account' => 'Akun Grup',
     'lod' => 'LOD',
     'description' => 'Deskripsi',
+    'journal' => 'Jurnal',
+    'general-ledger' => 'Jurnal Umum',
+    'trial-balance' => 'Neraca Saldo',
 ];
